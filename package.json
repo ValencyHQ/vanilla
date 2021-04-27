@@ -32,6 +32,7 @@
             "build": "microbundle -o dist/ --sourcemap false --compress false",
             "dev": "microbundle watch -o dist/ --sourcemap false --compress false",
             "test": "jest --coverage",
+            "test:watch": "jest --coverage --watch",
             "lint": "eslint --ext .js,.jsx,.ts,.tsx ."
       },
       "repository": {
