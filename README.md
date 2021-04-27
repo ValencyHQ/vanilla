@@ -14,9 +14,10 @@ npm install valency --save
 
 - [Quick Start](#quick-start)
 - [Usage](#usage)
-     - [Client-side JavaScript](#client-side-javascript)
-     - [SVG Sprite](#svg-sprite)
-     - [React](#react)
+     - [Client-side JavaScript](#🌐-client-side-javascript)
+     - [SVG Sprite & Icons](#🖋-svg-sprites-&-icons)
+     - [React](#⚛️-react)
+     - [Figma](#🎏-figma)
 - [API Reference](#api-reference)
      - [`valency.get()`](#valencygetattrs)
      - [`valency.replace()`](#valencyreplaceattrs)
@@ -32,7 +33,6 @@ npm install valency --save
       <title></title>
       <script src="https://unpkg.com/valency"></script>
       <body>
-            <!-- example icon -->
             <img data-valency="cat-dog" />
 
             <script>
@@ -48,11 +48,11 @@ npm install valency --save
 </html>
 ```
 
-## Usage
+## 👨‍🎨 Usage
 
 The following ways you can use assets served by Valency.
 
-## Client-side JavaScript
+## 🌐 Client-side JavaScript
 
 ### 1. Install
 
@@ -99,6 +99,52 @@ Setup Valency with your credentials. Call the `valency.replace()` method:
 
 All elements that have a `data-valency` attribute, their `src` or `data` atrribute will be replaced with the assset's URL corresponding to their `data-valency` attribute value.
 See the API Reference for more information about [`valency.replace()`](#valencyreplaceattrs).
+
+## 🖋 SVG Sprites & Icons
+
+Valency serves icons packed into a single SVG sprite.
+
+> > If an icon in a libray is not a vector `(PNG or JPG)`, it gets converted to `SVG` and packed into the icons collection sprite
+> > For Valency to serve SVG Icon sprite for a library, the library's category must be `icon`
+
+### 1. Usage
+
+```html
+<svg
+      data-valency="icon-name"
+      width="24"
+      height="24"
+      fill="none"
+      stroke="currentColor"
+></svg>
+
+<!-- you can also use i tag -->
+<i data-valency="icon-name"></i>
+```
+
+Use `data-valency-lib` to set a library name if you don't want to use the default.
+
+```html
+<svg
+      data-valency="icon-name"
+      data-valency-lib="icons-library-name"
+      width="24"
+      height="24"
+      fill="none"
+      stroke="currentColor"
+></svg>
+
+<!-- you can also use i tag -->
+<i data-valency="icon-name" data-valency-lib="icons-library-name"></i>
+```
+
+## ⚛️ React
+
+Valency has a wrapper library for React, have a look at [react-valency](https://github.com/ValencyHQ/react/blob/master/LICENSE).
+
+## 🎏 Figma
+
+Valency is available as a Figma plugin. To use the plugin, log in to your Figma and install it. [Get it now!](https://www.figma.com/community/search?model_type=public_plugins&q=Valency)
 
 ## 🧾 License
 
