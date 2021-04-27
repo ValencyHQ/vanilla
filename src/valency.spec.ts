@@ -3,7 +3,7 @@ import { Valency } from './valency'
 const BASE_URL = 'https://cdn.valency.design/'
 const defaultConfig = {
       username: 'ahkohd',
-      defaultProjectId: 'id',
+      defaultProjectId: 'someprojectid',
       defaultLibrary: 'somelibrary',
 }
 const testAssetURL = `${BASE_URL}${defaultConfig.username}/${defaultConfig.defaultProjectId}/${defaultConfig.defaultLibrary}/`
@@ -16,6 +16,20 @@ describe('Test Valency class', () => {
       describe('Check if base URL is correct', () => {
             it(`shoud return: ${BASE_URL}`, () => {
                   expect(Valency.baseUrl).toEqual(BASE_URL)
+            })
+      })
+
+      describe('Test getConfig() method', () => {
+            it(`should return`, () => {
+                  expect(
+                        new Valency(defaultConfig).getConfig({
+                              library: 'lorem',
+                        })
+                  ).toEqual({
+                        username: 'ahkohd',
+                        project: 'someprojectid',
+                        library: 'lorem',
+                  })
             })
       })
 
