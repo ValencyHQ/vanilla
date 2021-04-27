@@ -104,7 +104,7 @@ See the API Reference for more information about [`valency.replace()`](#valencyr
 
 Valency serves icons packed into a single SVG sprite.
 
-> > If an icon in a libray is not a vector `(PNG or JPG)`, it gets converted to `SVG` and packed into the icons collection sprite
+> > If an icon in a icons library is not a vector `(PNG or JPG)`, it gets converted to `SVG`, then packed into the SVG sprite
 > > For Valency to serve SVG Icon sprite for a library, the library's category must be `icon`
 
 ### 1. Usage
@@ -140,7 +140,7 @@ Use `data-valency-lib` to set a library name if you don't want to use the defaul
 
 ## ⚛️ React
 
-Valency has a wrapper library for React, have a look at [react-valency](https://github.com/ValencyHQ/react/blob/master/LICENSE).
+There is a wrapper library for React, have a look at [react-valency](https://github.com/ValencyHQ/react/blob/master/LICENSE).
 
 ## 🎏 Figma
 
