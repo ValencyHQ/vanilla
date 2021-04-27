@@ -1,7 +1,7 @@
 export type ValencyConfig = {
       username: string
-      defaultLibraryId: string
       defaultProjectId: string
+      defaultLibrary: string
 }
 
 export type Config = {
@@ -26,8 +26,7 @@ export class Valency {
                         otherConfig?.project ??
                         this.baseConfig.defaultProjectId,
                   library:
-                        otherConfig?.library ??
-                        this.baseConfig.defaultLibraryId,
+                        otherConfig?.library ?? this.baseConfig.defaultLibrary,
             }
       }
 

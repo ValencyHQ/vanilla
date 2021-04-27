@@ -4,7 +4,7 @@ const BASE_URL = 'https://cdn.valency.design/'
 const defaultConfig = {
       username: 'ahkohd',
       defaultProjectId: 'id',
-      defaultLibraryId: '123',
+      defaultLibrary: '123',
 }
 
 describe('Test Valency class', () => {
@@ -24,7 +24,7 @@ describe('Test Valency class', () => {
                   const assetURL = new Valency(defaultConfig).get(assetName)
 
                   expect(assetURL).toEqual(
-                        `${BASE_URL}${defaultConfig.username}/${defaultConfig.defaultProjectId}/${defaultConfig.defaultLibraryId}/${assetName}`
+                        `${BASE_URL}${defaultConfig.username}/${defaultConfig.defaultProjectId}/${defaultConfig.defaultLibrary}/${assetName}`
                   )
             })
       })
@@ -36,7 +36,7 @@ describe('Test Valency class', () => {
                   new Valency(defaultConfig).replace(undefined, document)
 
                   expect(document.body.innerHTML).toBe(
-                        `<img data-valency="cat-dog" src="${`${BASE_URL}${defaultConfig.username}/${defaultConfig.defaultProjectId}/${defaultConfig.defaultLibraryId}/cat-dog`}">`
+                        `<img data-valency="cat-dog" src="${`${BASE_URL}${defaultConfig.username}/${defaultConfig.defaultProjectId}/${defaultConfig.defaultLibrary}/cat-dog`}">`
                   )
             })
 
@@ -46,7 +46,7 @@ describe('Test Valency class', () => {
                   new Valency(defaultConfig).replace(undefined, document)
 
                   expect(document.body.innerHTML).toBe(
-                        `<object data-valency="cat-dog" data="${`${BASE_URL}${defaultConfig.username}/${defaultConfig.defaultProjectId}/${defaultConfig.defaultLibraryId}/cat-dog`}"></object>`
+                        `<object data-valency="cat-dog" data="${`${BASE_URL}${defaultConfig.username}/${defaultConfig.defaultProjectId}/${defaultConfig.defaultLibrary}/cat-dog`}"></object>`
                   )
             })
 
@@ -59,7 +59,7 @@ describe('Test Valency class', () => {
                         (document.body.children[0] as HTMLDivElement).style
                               .backgroundImage
                   ).toBe(
-                        `url(${BASE_URL}${defaultConfig.username}/${defaultConfig.defaultProjectId}/${defaultConfig.defaultLibraryId}/cat-dog)`
+                        `url(${BASE_URL}${defaultConfig.username}/${defaultConfig.defaultProjectId}/${defaultConfig.defaultLibrary}/cat-dog)`
                   )
             })
       })
