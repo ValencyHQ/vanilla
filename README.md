@@ -78,7 +78,6 @@ To use an icon on your page, add a data-valency attribute with the icon name to 
 <img data-valency="man-dog" />
 <object data-valency="man-dog"></object>
 <div data-valency="man-dog">Your background image goes here</div>
-,
 ```
 
 ### 4. Setup & Replace
@@ -104,7 +103,7 @@ See the API Reference for more information about [`valency.replace()`](#valencyr
 
 Valency serves icons packed into a single SVG sprite.
 
-> > If an icon in a icons library is not a vector `(PNG or JPG)`, it gets converted to `SVG`, then packed into the SVG sprite
+> > If an icon in a icons library is not a vector `(PNG or JPG)`, it gets converted to `SVG`, then packed into the SVG sprite.
 > > For Valency to serve SVG Icon sprite for a library, the library's category must be `icon`
 
 ### 1. Usage
@@ -134,7 +133,6 @@ Use `data-valency-lib` to set a library name if you don't want to use the defaul
       stroke="currentColor"
 ></svg>
 
-<!-- you can also use i tag -->
 <i data-valency="icon-name" data-valency-lib="icons-library-name"></i>
 ```
 
