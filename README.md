@@ -2,7 +2,9 @@
 
 # 🤔 What is Valency?
 
-Valency is a tool to manage and serve design assets. It provides designers assets curration & management capabilty as well serves assets for use over it's CDN.
+Valency is a tool to manage and serve design assets.
+
+- Design assets managed with Valency are served for use over a CDN.
 
 ## 📦 Install
 
