@@ -88,14 +88,9 @@ export class Valency {
                               'icons.svg',
                               configure
                         )}#${assetName}"></use>`
-                        ;[...(element as HTMLElement).attributes].forEach(
-                              (attr) => {
-                                    svgElement.setAttribute(
-                                          attr.name,
-                                          attr.value
-                                    )
-                              }
-                        )
+                        ;[...element.attributes].forEach((attr) => {
+                              svgElement.setAttribute(attr.name, attr.value)
+                        })
 
                         element.replaceWith(svgElement)
                   }
