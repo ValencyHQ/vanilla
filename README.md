@@ -146,7 +146,7 @@ There is a wrapper library for React, have a look at [react-valency](https://git
 
 Valency is available as a Figma plugin. To use the plugin, log in to your Figma and install it. [Get it now!](https://www.figma.com/community/search?model_type=public_plugins&q=Valency)
 
-# API Reference
+## ⚙️ API Reference
 
 ## <span id="valencygetfn">`valency.get(assetName, config?)`</span>
 
@@ -168,7 +168,7 @@ Returns configuration object.
 
 > > If `otherConfig` argument is provided, it's merged with the base configuration. Note that whatever options set in `otherConfig` takes precedence over the base configuration when they're merged together.
 
-## Contributing
+## 👨‍🔧 Contributing
 
 For more info on how to contribute please see the [contribution guidelines](./CONTRIBUTING.md).
 
