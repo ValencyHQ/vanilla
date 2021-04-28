@@ -2,11 +2,9 @@
 
 :+1::tada: First off, thanks for taking the time to contribute! :tada::+1:
 
-The following is a set of guidelines for contributing to Feather. Feel free to propose changes to this document in a pull request.
+The following is a set of guidelines for contributing to Valency. Feel free to propose changes to this document in a pull request.
 
 ## Pull Requests
-
-> **Note:** At the moment we are not accepting pull requests containing _**icons**_. The best way to contribute an icon is to create an issue with a screenshot and link to an SVG of your icon.
 
 Pull requests for new features, bug fixes, etc. are often appreciated.
 
@@ -20,19 +18,13 @@ Guidelines for pull requests:
 - **Make sure the target of your pull request is the relevant branch**. Most of bugfix or new feature should go to the `master` branch.
 - **Include only related work**. If your pull request has unrelated commit, it won't be accepted.
 
-## Icon Requests
-
-Before creating an icon request, please search to see if someone has requested the icon already. If there is an open request, please add a :+1:.
-
-If the icon has not already been requested, [create an issue](https://github.com/colebemis/feather/issues/new?title=Icon%20Request:) with a title of `Icon request: <icon name>` and add as much information as possible.
-
 ## Bug Reports
 
 Before reporting an issue, please search to see if someone has filed a similar issue before. If there is already an open issue, please add a :+1: and/or leave a comment with additional information.
 
 When creating a new issue make sure to include the following:
 
-- Version of `Feather` in use. Are you running from source/master? Are you using a released build? Which release?
+- Version of `Valency` in use. Are you running from source/master? Are you using a released build? Which release?
 - Your environment. What is your operating system? 32 or 64 bits?
 - Step to reproduce. Even if the step is only one line change, **include it!** Include the actual result and what you expected.
 - Any message or error you get in the console, if you do.
@@ -50,17 +42,15 @@ Bits: 64 bits
 
 ## Step to reproduce
 
- - Import `check` icon
- - Add to a React component/view
- - Run the react app
- - Notice that the `check` isn't rendering correctly which seems a encoding problem
+ - List steps
+ - to reproduce
+ - the bug here
 
 ### Actual behavior:
 
- - Import `check` icon
- - Add to a React component/view
- - Run the react app
- - Check is displayed with correct encoding (e.g UTF-8)
+ - List the
+ - actual expected
+ - behaviour(s) here
 
 ## Any message or error
 
