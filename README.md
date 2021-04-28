@@ -21,10 +21,10 @@ npm install valency --save
      - [React](#⚛️-react)
      - [Figma](#🎏-figma)
 - [API Reference](#api-reference)
-     - [`valency.get()`](#valencygetattrs)
-     - [`valency.replace()`](#valencyreplaceattrs)
+     - [`valency.get()`](#valencygetfn)
+     - [`valency.replace()`](#valencyreplacefn)
+     - [`valency.getConfig()`](#valencygetconfigfn)
 - [Contributing](#contributing)
-- [Related Projects](#related-projects)
 - [License](#license)
 
 ## 🧪 Quick start
@@ -145,6 +145,34 @@ There is a wrapper library for React, have a look at [react-valency](https://git
 ## 🎏 Figma
 
 Valency is available as a Figma plugin. To use the plugin, log in to your Figma and install it. [Get it now!](https://www.figma.com/community/search?model_type=public_plugins&q=Valency)
+
+# API Reference
+
+## <span id="valencygetfn">`valency.get(assetName, config?)`</span>
+
+Returns a URL to the provided `assetName`.
+
+> > If `config` argument is provided, it is used to generate the link instead of the default configuration set at instance of `Valency`.
+
+## <span id="valencyreplacefn">`valency.replace(config?, document?)`</span>
+
+All elements that have a `data-valency` attribute, their `src` atrribute will be replaced with the assset URL corresponding to their `data-valency` attribute value.
+
+> > If `config` argument is provided, it is used to generate the link instead of the default configuration set at instance of `Valency`.
+
+> > If `document` argument is provided, it carries out replace on it instead of `window.document`.
+
+## <span id="valencygetconfigfn">`valency.getConfig(otherConfig?)`</span>
+
+Returns configuration object.
+
+> > If `otherConfig` argument is provided, it's merged with the base configuration. Note that whatever options set in `otherConfig` takes precedence over the base configuration when they're merged together.
+
+## Contributing
+
+For more info on how to contribute please see the [contribution guidelines](./CONTRIBUTING.md).
+
+Caught a mistake or want to contribute to the documentation? [Edit this page on Github](./README.md)
 
 ## 🧾 License
 
