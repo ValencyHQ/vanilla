@@ -9,7 +9,7 @@ Valency is a tool to manage and serve design assets.
 ## 📦 Install
 
 ```shell
-npm install valency --save
+npm install @valencyhq/valency --save
 ```
 
 ## Table of Contents
@@ -33,7 +33,7 @@ npm install valency --save
 <!DOCTYPE html>
 <html lang="en">
       <title></title>
-      <script src="https://unpkg.com/valency"></script>
+      <script src="https://unpkg.com/@valencyhq/valency"></script>
       <body>
             <img data-valency="cat-dog" />
 
@@ -63,7 +63,7 @@ The following ways you can use assets served by Valency.
 Install with npm.
 
 ```shell
-npm install valency --save
+npm install @valencyhq/valency --save
 ```
 
 Or just copy valency.js or valency.min.js into your project directory. You don't need both valency.js and valency.min.js.
