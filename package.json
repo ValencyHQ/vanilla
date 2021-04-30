@@ -1,6 +1,6 @@
 {
       "name": "@valencyhq/valency",
-      "version": "0.0.6",
+      "version": "0.0.7",
       "description": "Valency is a tool to manage and serve design assets",
       "source": "src/valency.ts",
       "main": "dist/valency.js",
@@ -12,7 +12,6 @@
             "dist",
             "readme.md"
       ],
-      "dependencies": {},
       "devDependencies": {
             "@types/jest": "^26.0.14",
             "@typescript-eslint/eslint-plugin": "^4.1.1",
