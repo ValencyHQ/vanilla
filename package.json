@@ -1,6 +1,6 @@
 {
       "name": "@valencyhq/valency",
-      "version": "0.0.3",
+      "version": "0.0.4",
       "description": "",
       "source": "src/valency.ts",
       "main": "dist/valency.js",
