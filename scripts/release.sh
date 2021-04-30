@@ -9,25 +9,17 @@ echo "[info]: Bump $PROJECT_NAME (v$VERSION_NUMBER)..."
 if [[ $RELEASE_TYPE == "patch" ]]
 then
     npm --no-git-tag-version version patch
-    cd app
-    npm --no-git-tag-version version patch
 fi
 
 if [[ $RELEASE_TYPE == "minor" ]]
 then
-    npm --no-git-tag-version version minor
-    cd app
     npm --no-git-tag-version version minor
 fi
 
 if [[ $RELEASE_TYPE == "major" ]]
 then
     npm --no-git-tag-version version major
-    cd app
-    npm --no-git-tag-version version major
 fi
-
-cd ../
 
 VERSION_NUMBER=$(node ./scripts/get-project-version.js)
 echo "[info]: New release $PROJECT_NAME (v$VERSION_NUMBER)..."
