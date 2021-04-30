@@ -10,7 +10,8 @@ export type Config = {
       library?: string
 }
 
-export class Valency {
+// eslint-disable-next-line import/no-default-export
+export default class Valency {
       public static baseUrl = 'https://cdn.valency.design/'
 
       constructor(private baseConfig: ValencyConfig) {}

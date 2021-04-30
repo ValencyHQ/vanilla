@@ -1,4 +1,4 @@
-import { Valency } from './valency'
+import Valency from './valency'
 
 const BASE_URL = 'https://cdn.valency.design/'
 const defaultConfig = {
