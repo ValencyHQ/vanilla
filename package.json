@@ -1,6 +1,6 @@
 {
       "name": "@valencyhq/valency",
-      "version": "0.0.8",
+      "version": "0.0.9",
       "description": "Valency is a tool to manage and serve design assets",
       "source": "src/valency.ts",
       "main": "dist/valency.js",

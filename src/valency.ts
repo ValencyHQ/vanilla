@@ -1,34 +1,39 @@
 export type ValencyConfig = {
       username: string
-      defaultProjectId: string
-      defaultLibrary: string
+      project: string
+      library: string
 }
 
-export type Config = {
-      username?: string
-      project?: string
-      library?: string
-}
+export type Config = Partial<ValencyConfig>
 
 // eslint-disable-next-line import/no-default-export
 export default class Valency {
       public static baseUrl = 'https://cdn.valency.design/'
 
-      constructor(private baseConfig: ValencyConfig) {}
+      public asset: Valency & Record<string, never>
+
+      constructor(private baseConfig: ValencyConfig) {
+            this.asset = this.createValencyProxy()
+      }
 
       /**
-       * Returns configuration
+       * Returns config
        */
 
-      getConfig(otherConfig?: Config): Config {
+      getConfig(otherConfig?: Config): ValencyConfig {
             return {
                   username: otherConfig?.username ?? this.baseConfig.username,
-                  project:
-                        otherConfig?.project ??
-                        this.baseConfig.defaultProjectId,
-                  library:
-                        otherConfig?.library ?? this.baseConfig.defaultLibrary,
+                  project: otherConfig?.project ?? this.baseConfig.project,
+                  library: otherConfig?.library ?? this.baseConfig.library,
             }
+      }
+
+      /**
+       * Sets config
+       */
+
+      setConfig(otherConfig?: Config): void {
+            this.baseConfig = this.getConfig(otherConfig)
       }
 
       /**
@@ -96,5 +101,19 @@ export default class Valency {
                         element.replaceWith(svgElement)
                   }
             })
+      }
+
+      private createValencyProxy(): never {
+            const trap = {
+                  get: (target: never, prop: string, receiver: never) => {
+                        if (!(prop in this)) {
+                              return this.get(prop)
+                        }
+
+                        return Reflect.get(target, prop, receiver)
+                  },
+            }
+
+            return new Proxy(this, trap) as never
       }
 }

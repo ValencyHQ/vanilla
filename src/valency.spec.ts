@@ -3,10 +3,10 @@ import Valency from './valency'
 const BASE_URL = 'https://cdn.valency.design/'
 const defaultConfig = {
       username: 'ahkohd',
-      defaultProjectId: 'someprojectid',
-      defaultLibrary: 'somelibrary',
+      project: 'someprojectid',
+      library: 'somelibrary',
 }
-const testAssetURL = `${BASE_URL}${defaultConfig.username}/${defaultConfig.defaultProjectId}/${defaultConfig.defaultLibrary}/`
+const testAssetURL = `${BASE_URL}${defaultConfig.username}/${defaultConfig.project}/${defaultConfig.library}/`
 
 describe('Test Valency class', () => {
       afterEach(() => {
@@ -14,7 +14,7 @@ describe('Test Valency class', () => {
       })
 
       describe('Check if base URL is correct', () => {
-            it(`shoud return: ${BASE_URL}`, () => {
+            it(`should return: ${BASE_URL}`, () => {
                   expect(Valency.baseUrl).toEqual(BASE_URL)
             })
       })
@@ -90,7 +90,7 @@ describe('Test Valency class', () => {
                   new Valency(defaultConfig).replace(undefined, document)
 
                   expect(document.body.innerHTML).toBe(
-                        `<svg data-valency="cat-dog" data-valency-lib="niceicons"><use xlink:href="${BASE_URL}${defaultConfig.username}/${defaultConfig.defaultProjectId}/niceicons/icons.svg#cat-dog"></use></svg>`
+                        `<svg data-valency="cat-dog" data-valency-lib="niceicons"><use xlink:href="${BASE_URL}${defaultConfig.username}/${defaultConfig.project}/niceicons/icons.svg#cat-dog"></use></svg>`
                   )
             })
 
@@ -100,6 +100,22 @@ describe('Test Valency class', () => {
                   new Valency(defaultConfig).replace(undefined, document)
                   expect(document.body.innerHTML).toBe(
                         `<svg data-valency="cat-dog" width="24" height="24" fill="none" stroke="currentColor"><use xlink:href="${testAssetURL}icons.svg#cat-dog"></use></svg>`
+                  )
+            })
+      })
+
+      describe('Test proxy object', () => {
+            it(`Valency.asset.likeIcon should return: ${`${testAssetURL}likeIcon`}`, () => {
+                  const valent = new Valency(defaultConfig)
+                  expect(valent.asset.likeIcon).toEqual(
+                        `${testAssetURL}likeIcon`
+                  )
+            })
+
+            it(`Valency.asset['man-dog'] shoud return: ${`${testAssetURL}man-dog`}`, () => {
+                  const valent = new Valency(defaultConfig)
+                  expect(valent.asset['man-dog']).toEqual(
+                        `${testAssetURL}man-dog`
                   )
             })
       })
