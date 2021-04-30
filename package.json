@@ -2,9 +2,12 @@
       "name": "@valencyhq/valency",
       "version": "0.0.3",
       "description": "",
+      "source": "src/valency.ts",
       "main": "dist/valency.js",
-      "umd:main": "dist/valency.umd.js",
+      "exports": "./dist/valency.modern.js",
       "module": "dist/valency.mjs",
+      "unpkg": "dist/valency.umd.js",
+      "umd:main": "dist/valency.umd.js",
       "files": [
             "dist",
             "readme.md"
