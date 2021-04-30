@@ -12,13 +12,12 @@
             "dist",
             "readme.md"
       ],
-      "dependencies": {
-            "easyjson": "^0.1.2"
-      },
+      "dependencies": {},
       "devDependencies": {
             "@types/jest": "^26.0.14",
             "@typescript-eslint/eslint-plugin": "^4.1.1",
             "@typescript-eslint/parser": "^4.1.1",
+            "easyjson": "^0.1.2",
             "eslint": "^7.9.0",
             "eslint-config-airbnb-typescript": "^10.0.0",
             "eslint-config-prettier": "^6.10.1",
