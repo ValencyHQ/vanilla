@@ -1,6 +1,6 @@
 {
       "name": "valency",
-      "version": "0.0.2",
+      "version": "0.0.0",
       "description": "",
       "main": "dist/valency.js",
       "umd:main": "dist/valency.umd.js",

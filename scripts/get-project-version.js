@@ -1,6 +1,6 @@
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { path } = require('easyjson')
+const easyjson = require('easyjson')
 
 // eslint-disable-next-line no-console
-console.log(path('package').get('version'));
+console.log(easyjson.path('package').get('version'));
