@@ -29,7 +29,7 @@ fi
 
 cd ../
 
-VERSION_NUMBER=$(node ./scripts/getProjectVersion.js)
+VERSION_NUMBER=$(node ./scripts/get-project-version.js)
 echo "[info]: New release $PROJECT_NAME (v$VERSION_NUMBER)..."
 
 echo "[info]: Commit release changes..."
