@@ -9,7 +9,9 @@
             "dist",
             "readme.md"
       ],
-      "dependencies": {},
+      "dependencies": {
+            "easyjson": "^0.1.2"
+      },
       "devDependencies": {
             "@types/jest": "^26.0.14",
             "@typescript-eslint/eslint-plugin": "^4.1.1",
@@ -29,11 +31,15 @@
             "typescript": "^4.0.3"
       },
       "scripts": {
+            "postinstall": "chmod +x ./scripts/release.sh",
             "build": "microbundle -o dist/ --sourcemap false --compress false",
             "dev": "microbundle watch -o dist/ --sourcemap false --compress false",
             "test": "jest --coverage",
             "test:watch": "jest --coverage --watch",
-            "lint": "eslint --ext .js,.jsx,.ts,.tsx ."
+            "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
+            "release:patch": "./scripts/release.sh patch",
+            "release:minor": "./scripts/release.sh minor",
+            "release:major": "./scripts/release.sh major"
       },
       "repository": {
             "type": "git",

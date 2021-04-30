@@ -2580,6 +2580,11 @@ duplexer@^0.1.1:
   resolved "https://registry.yarnpkg.com/duplexer/-/duplexer-0.1.2.tgz#3abe43aef3835f8ae077d136ddce0f276b0400e6"
   integrity sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg==
 
+easyjson@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/easyjson/-/easyjson-0.1.2.tgz#2e2be25b5bd7e99440ec3b8f5fb4735046f41994"
+  integrity sha1-LiviW1vX6ZRA7DuPX7RzUEb0GZQ=
+
 ecc-jsbn@~0.1.1:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/ecc-jsbn/-/ecc-jsbn-0.1.2.tgz#3a83a904e54353287874c564b7549386849a98c9"
