@@ -1,11 +1,11 @@
 {
-  "compilerOptions": {
-    "target": "ES2019",
-    "module": "ESNext",
-    "strict": true,
-    "esModuleInterop": true,
-    "moduleResolution": "Node",
-    "forceConsistentCasingInFileNames": true,
-    "outDir": "dist"
-  }
+      "compilerOptions": {
+            "target": "ESNext",
+            "module": "ESNext",
+            "strict": true,
+            "esModuleInterop": true,
+            "moduleResolution": "Node",
+            "forceConsistentCasingInFileNames": true,
+            "outDir": "dist"
+      }
 }
