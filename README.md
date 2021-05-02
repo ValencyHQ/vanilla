@@ -89,8 +89,8 @@ Setup Valency with your credentials. Call the `valency.replace()` method:
 ```html
 <script>
       var valent = new valency({
-            uid: 'your username',
-            project: 'your project ID',
+            uid: 'Your user ID',
+            project: 'Your project ID',
             library: 'Your library ID',
       })
 
