@@ -94,9 +94,7 @@ Setup Valency with your credentials. Call the `valency.replace()` method:
             library: 'Your library ID',
       })
 
-      window.onload = () => {
-            valent.replace()
-      }
+      valent.replace()
 </script>
 ```
 
