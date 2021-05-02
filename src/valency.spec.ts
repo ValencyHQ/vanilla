@@ -2,11 +2,11 @@ import Valency from './valency'
 
 const BASE_URL = 'https://cdn.valency.design/'
 const defaultConfig = {
-      username: 'ahkohd',
+      uid: 'ahkohd',
       project: 'someprojectid',
       library: 'somelibrary',
 }
-const testAssetURL = `${BASE_URL}${defaultConfig.username}/${defaultConfig.project}/${defaultConfig.library}/`
+const testAssetURL = `${BASE_URL}${defaultConfig.uid}/${defaultConfig.project}/${defaultConfig.library}/`
 
 describe('Test Valency class', () => {
       afterEach(() => {
@@ -26,7 +26,7 @@ describe('Test Valency class', () => {
                               library: 'lorem',
                         })
                   ).toEqual({
-                        username: 'ahkohd',
+                        uid: 'ahkohd',
                         project: 'someprojectid',
                         library: 'lorem',
                   })
@@ -39,6 +39,19 @@ describe('Test Valency class', () => {
                   const assetURL = new Valency(defaultConfig).get(assetName)
 
                   expect(assetURL).toEqual(testAssetURL + assetName)
+            })
+      })
+
+      describe('Test createValencyProxy() method', () => {
+            it(`should return`, () => {
+                  const assetName = 'cat-dog'
+                  const valent = new Valency(defaultConfig)
+
+                  expect(
+                        (valent.createValencyProxy() as Valency).asset[
+                              'cat-dog'
+                        ]
+                  ).toEqual(testAssetURL + assetName)
             })
       })
 
@@ -90,7 +103,7 @@ describe('Test Valency class', () => {
                   new Valency(defaultConfig).replace(undefined, document)
 
                   expect(document.body.innerHTML).toBe(
-                        `<svg data-valency="cat-dog" data-valency-lib="niceicons"><use xlink:href="${BASE_URL}${defaultConfig.username}/${defaultConfig.project}/niceicons/icons.svg#cat-dog"></use></svg>`
+                        `<svg data-valency="cat-dog" data-valency-lib="niceicons"><use xlink:href="${BASE_URL}${defaultConfig.uid}/${defaultConfig.project}/niceicons/icons.svg#cat-dog"></use></svg>`
                   )
             })
 
