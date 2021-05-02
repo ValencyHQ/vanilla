@@ -39,7 +39,7 @@ npm install @valencyhq/valency --save
 
             <script>
                   var valency = new Valency({
-                        username: 'your username',
+                        uid: 'your user ID',
                         project: 'your project ID',
                         library: 'Your library ID',
                   })
@@ -89,12 +89,14 @@ Setup Valency with your credentials. Call the `valency.replace()` method:
 ```html
 <script>
       var valent = new valency({
-            username: 'your username',
+            uid: 'your username',
             project: 'your project ID',
             library: 'Your library ID',
       })
 
-      valent.replace()
+      window.onload = () => {
+            valent.replace()
+      }
 </script>
 ```
 

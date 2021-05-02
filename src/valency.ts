@@ -1,5 +1,5 @@
 export type ValencyConfig = {
-      username: string
+      uid: string
       project: string
       library: string
 }
@@ -22,7 +22,7 @@ export default class Valency {
 
       getConfig(otherConfig?: Config): ValencyConfig {
             return {
-                  username: otherConfig?.username ?? this.baseConfig.username,
+                  uid: otherConfig?.uid ?? this.baseConfig.uid,
                   project: otherConfig?.project ?? this.baseConfig.project,
                   library: otherConfig?.library ?? this.baseConfig.library,
             }
@@ -46,7 +46,7 @@ export default class Valency {
       get(assetName: string, config?: Config): string {
             const preset = this.getConfig(config)
 
-            return `${Valency.baseUrl}${preset.username}/${preset.project}/${preset.library}/${assetName}`
+            return `${Valency.baseUrl}${preset.uid}/${preset.project}/${preset.library}/${assetName}`
       }
 
       /**
@@ -103,7 +103,7 @@ export default class Valency {
             })
       }
 
-      private createValencyProxy(): never {
+      public createValencyProxy(): never {
             const trap = {
                   get: (target: never, prop: string, receiver: never) => {
                         if (!(prop in this)) {
