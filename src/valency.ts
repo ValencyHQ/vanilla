@@ -103,7 +103,7 @@ export default class Valency {
             })
       }
 
-      public createValencyProxy(): never {
+      createValencyProxy(): never {
             const trap = {
                   get: (target: never, prop: string, receiver: never) => {
                         if (!(prop in this)) {
