@@ -61,46 +61,51 @@ export default class Valency {
       replace(config?: Config, document?: HTMLDocument): void {
             const doc = document ?? window.document
 
-            ;[...doc.querySelectorAll('[data-valency]')].forEach((node) => {
-                  const element = node as HTMLElement
-                  const assetName = element.dataset?.valency ?? ''
-                  const valencyLibraryName =
-                        element.dataset?.valencyLib ?? undefined
+            Array.from(doc.querySelectorAll('[data-valency]')).forEach(
+                  (node) => {
+                        const element = node as HTMLElement
+                        const assetName = element.dataset?.valency ?? ''
+                        const valencyLibraryName =
+                              element.dataset?.valencyLib ?? undefined
 
-                  const configure = {
-                        ...config,
-                        library: valencyLibraryName ?? config?.library,
+                        const configure = {
+                              ...config,
+                              library: valencyLibraryName ?? config?.library,
+                        }
+
+                        if (element.tagName === 'IMG') {
+                              ;(element as HTMLImageElement).src = this.get(
+                                    assetName,
+                                    configure
+                              )
+                        } else if (element.tagName === 'DIV') {
+                              element.style.backgroundImage = `url(${this.get(
+                                    assetName,
+                                    configure
+                              )})`
+                        } else if (element.tagName === 'OBJECT') {
+                              ;(element as HTMLObjectElement).data = this.get(
+                                    assetName,
+                                    configure
+                              )
+                        } else if (['I', 'svg'].includes(element.tagName)) {
+                              const svgElement = doc.createElement('SVG')
+
+                              svgElement.innerHTML = `<use xlink:href="${this.get(
+                                    'icons.svg',
+                                    configure
+                              )}#${assetName}"></use>`
+                              Array.from(element.attributes).forEach((attr) => {
+                                    svgElement.setAttribute(
+                                          attr.name,
+                                          attr.value
+                                    )
+                              })
+
+                              element.replaceWith(svgElement)
+                        }
                   }
-
-                  if (element.tagName === 'IMG') {
-                        ;(element as HTMLImageElement).src = this.get(
-                              assetName,
-                              configure
-                        )
-                  } else if (element.tagName === 'DIV') {
-                        element.style.backgroundImage = `url(${this.get(
-                              assetName,
-                              configure
-                        )})`
-                  } else if (element.tagName === 'OBJECT') {
-                        ;(element as HTMLObjectElement).data = this.get(
-                              assetName,
-                              configure
-                        )
-                  } else if (['I', 'svg'].includes(element.tagName)) {
-                        const svgElement = doc.createElement('SVG')
-
-                        svgElement.innerHTML = `<use xlink:href="${this.get(
-                              'icons.svg',
-                              configure
-                        )}#${assetName}"></use>`
-                        ;[...element.attributes].forEach((attr) => {
-                              svgElement.setAttribute(attr.name, attr.value)
-                        })
-
-                        element.replaceWith(svgElement)
-                  }
-            })
+            )
       }
 
       createValencyProxy(): never {

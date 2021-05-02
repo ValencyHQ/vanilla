@@ -51,6 +51,7 @@ module.exports = {
             ],
             // Common abbreviations are known and readable
             'unicorn/prevent-abbreviations': 'off',
+            'unicorn/prefer-spread': 'off',
       },
       ignorePatterns: ['**/scripts/*.js'],
 }
