@@ -6,7 +6,6 @@ export type ValencyConfig = {
 
 export type Config = Partial<ValencyConfig>
 
-// eslint-disable-next-line import/no-default-export
 export default class Valency {
       public static baseUrl = 'https://cdn.valency.design/'
 
