@@ -33,6 +33,18 @@ describe('Test Valency class', () => {
             })
       })
 
+      describe('Test setConfig() method', () => {
+            it(`should return`, () => {
+                  const valent = new Valency(defaultConfig)
+
+                  valent.setConfig({
+                        uid: 'mkbhd',
+                  })
+
+                  expect(valent.getConfig().uid).toEqual('mkbhd')
+            })
+      })
+
       describe('Test get() method', () => {
             it(`should return`, () => {
                   const assetName = 'cat-dog'
