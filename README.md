@@ -157,7 +157,7 @@ Returns a URL to the provided `assetName`.
 
 ## <span id="valencygetshorthandpropsfn">`valency.get() shorthand properties`</span>
 
-Valency provides convenient shorthand properties to `Valency.get()` which provides an intuitive way to get assets URL.
+Valency provides convenient shorthand properties to `Valency.get()` which provides an intuitive way to get an asset's URL.
 The shorthand format goes like this:
 
 ```js
