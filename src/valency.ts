@@ -6,10 +6,23 @@ export type ValencyConfig = {
 
 export type Config = Partial<ValencyConfig>
 
+export type ValencyProxy = Record<
+      string,
+      Record<
+            string,
+            { url: string } & Record<
+                  string,
+                  { url: string } & Record<string, { url: string }>
+            >
+      > & {
+            url: string
+      }
+>
+
 export default class Valency {
       public static baseUrl = 'https://cdn.valency.design/'
 
-      public asset: Valency & Record<string, never>
+      public asset
 
       constructor(private baseConfig: ValencyConfig) {
             this.asset = this.createValencyProxy()
@@ -107,17 +120,47 @@ export default class Valency {
             )
       }
 
-      createValencyProxy(): never {
+      createValencyProxy(): ValencyProxy {
             const trap = {
-                  get: (target: never, prop: string, receiver: never) => {
-                        if (!(prop in this)) {
-                              return this.get(prop)
+                  get: (
+                        target: Partial<{ $$path: string[]; url: string }>,
+                        key: string,
+                        receiver: never
+                  ): unknown => {
+                        if (key in target) {
+                              return Reflect.get(target, key, receiver)
                         }
 
-                        return Reflect.get(target, prop, receiver)
+                        if ('$$path' in target) {
+                              let url
+                              const $$path = [...(target?.$$path ?? []), key]
+
+                              if ($$path.length === 2) {
+                                    url = this.get($$path[1], {
+                                          library: $$path[0],
+                                    })
+                              } else if ($$path.length === 3) {
+                                    url = this.get($$path[2], {
+                                          library: $$path[1],
+                                          project: $$path[0],
+                                    })
+                              } else if ($$path.length >= 4) {
+                                    url = this.get($$path[3], {
+                                          library: $$path[2],
+                                          project: $$path[1],
+                                          uid: $$path[0],
+                                    })
+                              }
+                              return new Proxy({ $$path, url }, trap)
+                        }
+
+                        return new Proxy(
+                              { $$path: [key], url: this.get(key) },
+                              trap
+                        )
                   },
             }
 
-            return new Proxy(this, trap) as never
+            return new Proxy({}, trap) as never
       }
 }

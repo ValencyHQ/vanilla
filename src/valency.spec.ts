@@ -4,7 +4,7 @@ const BASE_URL = 'https://cdn.valency.design/'
 const defaultConfig = {
       uid: 'ahkohd',
       project: 'someprojectid',
-      library: 'somelibrary',
+      library: 'somelibraryid',
 }
 const testAssetURL = `${BASE_URL}${defaultConfig.uid}/${defaultConfig.project}/${defaultConfig.library}/`
 
@@ -56,14 +56,13 @@ describe('Test Valency class', () => {
 
       describe('Test createValencyProxy() method', () => {
             it(`should return`, () => {
-                  const assetName = 'cat-dog'
+                  const assetName = 'Some Asset Name'
                   const valent = new Valency(defaultConfig)
+                  valent.asset = valent.createValencyProxy()
 
-                  expect(
-                        (valent.createValencyProxy() as Valency).asset[
-                              'cat-dog'
-                        ]
-                  ).toEqual(testAssetURL + assetName)
+                  expect(valent.asset[assetName].url).toEqual(
+                        valent.get(assetName)
+                  )
             })
       })
 
@@ -130,17 +129,53 @@ describe('Test Valency class', () => {
       })
 
       describe('Test proxy object', () => {
-            it(`Valency.asset.likeIcon should return: ${`${testAssetURL}likeIcon`}`, () => {
+            it(`Valency.asset.likeIcon.url should return: ${`${testAssetURL}likeIcon`}`, () => {
                   const valent = new Valency(defaultConfig)
-                  expect(valent.asset.likeIcon).toEqual(
-                        `${testAssetURL}likeIcon`
+                  expect(valent.asset.someAssetName.url).toEqual(
+                        valent.get('someAssetName')
                   )
             })
 
-            it(`Valency.asset['man-dog'] shoud return: ${`${testAssetURL}man-dog`}`, () => {
+            it(`Valency.asset['Some Asset Name'].url should return: ${`${testAssetURL}man-dog`}`, () => {
                   const valent = new Valency(defaultConfig)
-                  expect(valent.asset['man-dog']).toEqual(
-                        `${testAssetURL}man-dog`
+                  expect(valent.asset['Some Asset Name'].url).toEqual(
+                        valent.get('Some Asset Name')
+                  )
+            })
+
+            it(`Valency.asset.yourLibraryId.someAssetName.url should return: ${`${testAssetURL}man-dog`}`, () => {
+                  const valent = new Valency(defaultConfig)
+                  expect(valent.asset.yourLibraryId.someAssetName.url).toEqual(
+                        valent.get('someAssetName', {
+                              library: 'yourLibraryId',
+                        })
+                  )
+            })
+
+            it(`Valency.asset.yourProjectId.yourLibraryName.someAssetName.url should return: ${`${testAssetURL}man-dog`}`, () => {
+                  const valent = new Valency(defaultConfig)
+                  expect(
+                        valent.asset.yourProjectId.yourLibraryName.someAssetName
+                              .url
+                  ).toEqual(
+                        valent.get('someAssetName', {
+                              library: 'yourLibraryName',
+                              project: 'yourProjectId',
+                        })
+                  )
+            })
+
+            it(`Valency.asset.yourUid.yourProjectId.yourLibraryName.someAssetName.url should return: ${`${testAssetURL}man-dog`}`, () => {
+                  const valent = new Valency(defaultConfig)
+                  expect(
+                        valent.asset.yourUid.yourProjectId.yourLibraryName
+                              .someAssetName.url
+                  ).toEqual(
+                        valent.get('someAssetName', {
+                              library: 'yourLibraryName',
+                              project: 'yourProjectId',
+                              uid: 'yourUid',
+                        })
                   )
             })
       })
