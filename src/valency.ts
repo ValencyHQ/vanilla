@@ -22,7 +22,7 @@ export type ValencyProxy = Record<
 export default class Valency {
       public static baseUrl = 'https://cdn.valency.design/'
 
-      public asset
+      public asset: ValencyProxy
 
       constructor(private baseConfig: ValencyConfig) {
             this.asset = this.createValencyProxy()
