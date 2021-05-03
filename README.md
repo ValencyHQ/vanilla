@@ -22,6 +22,7 @@ npm install @valencyhq/valency --save
      - [Figma](#🎏-figma)
 - [API Reference](#api-reference)
      - [`valency.get()`](#valencygetfn)
+     - [`valency.get() shorthand properties`](#valencygetshorthandpropsfn)
      - [`valency.replace()`](#valencyreplacefn)
      - [`valency.getConfig()`](#valencygetconfigfn)
 - [Contributing](#contributing)
@@ -153,6 +154,102 @@ Valency is available as a Figma plugin. To use the plugin, log in to your Figma 
 Returns a URL to the provided `assetName`.
 
 > If `config` argument is provided, it is used to generate the link instead of the default configuration set at instance of `Valency`.
+
+## <span id="valencygetshorthandpropsfn">`valency.get() shorthand properties`</span>
+
+Valency provides convenient shorthand properties to `Valency.get()` which provides an intuitive way to get assets URL.
+The shorthand format goes like this:
+
+```js
+valent.asset.<assetName>.url
+valent.asset.<yourLibraryId>.<someAssetName>.url
+valent.asset.<yourProjectId>.<yourLibraryId>.<someAssetName>.url
+valent.asset.<yourUserId>.<yourProjectId>.<yourLibraryId>.<someAssetName>.url
+```
+
+Let's show some sample `Valency.get()` usage with it's shorthand equivalent.
+
+```js
+const valent = new Valency({
+      uid: '9825624020',
+      project: 'PsSBtkjlQys',
+      library: 'LIB_i7J',
+})
+
+/** 🔖 EXAMPLE 1 **/
+
+valent.get('blondeAvatar')
+
+/**
+ * Shorthand 🤞
+ * valent.asset.<assetName>.url
+ */
+
+valent.asset.blondeAvatar.url
+
+// returns https://cdn.valency.design/9825624020/PsSBtkjlQys/LIB_i7J/blondeAvatar
+
+/** 🔖 EXAMPLE 2 **/
+
+valent.get('03886')
+
+/**
+ * Shorthand 🤞
+ * valent.asset.<assetName>.url
+ */
+
+valent.asset['03886'].url
+
+// returns https://cdn.valency.design/9825624020/PsSBtkjlQys/LIB_i7J/03886
+
+/** 🔖 EXAMPLE 3 **/
+
+valent.get('latinoAvatar', {
+      library: 'LIB_3D_avatars',
+})
+
+/**
+ * Shorthand 🤞
+ * valent.asset.<libraryID>.<assetName>.url
+ */
+
+valent.asset.Lib_3D_avatars.latinoAvatar.url
+
+// returns https://cdn.valency.design/9825624020/PsSBtkjlQys/LIB_3D_avatars/latinoAvatar
+
+/** 🔖 EXAMPLE 4 **/
+
+valent.get('spaceship', {
+      library: 'LIB_i3m',
+      project: 'pNASA',
+})
+
+/**
+ * Shorthand 🤞
+ * valent.asset.<projectID>.<libraryID>.<assetName>.url
+ */
+
+valent.asset.pNASA.LIB_i3m.spaceship.url
+
+// returns https://cdn.valency.design/9825624020/pNASA/LIB_i3m/spaceship
+
+/** 🔖 EXAMPLE 5 **/
+
+valent.get('Mast Head.png', {
+      library: 'LIB_mcq',
+      project: 'pMaterial',
+      uid: '03786',
+})
+
+/**
+ * Shorthand 🤞
+ * valent.asset.<userID>.<projectID>.<libraryID>.<assetName>.url
+ */
+
+valent.asset['03786'].pMaterial.LIB_mcq['Mast Head.png'].url
+
+// returns https://cdn.valency.design/03786/pMaterial/LIB_mcq/Mast Head.png
+```
 
 ## <span id="valencyreplacefn">`valency.replace(config?, document?)`</span>
 
