@@ -39,13 +39,13 @@ npm install @valencyhq/valency --save
             <img data-valency="cat-dog" />
 
             <script>
-                  var valency = new Valency({
+                  var valent = new valency({
                         uid: 'your user ID',
                         project: 'your project ID',
                         library: 'Your library ID',
                   })
 
-                  valency.replace()
+                  valent.replace()
             </script>
       </body>
 </html>
