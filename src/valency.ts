@@ -44,7 +44,7 @@ export default class Valency {
        * Sets config
        */
 
-      setConfig(otherConfig?: Config): void {
+      setConfig(otherConfig: Config): void {
             this.baseConfig = this.getConfig(otherConfig)
       }
 
