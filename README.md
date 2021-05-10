@@ -25,6 +25,7 @@ npm install @valencyhq/valency --save
      - [`valency.get() shorthand properties`](#valencygetshorthandpropsfn)
      - [`valency.replace()`](#valencyreplacefn)
      - [`valency.getConfig()`](#valencygetconfigfn)
+     - [`valency.setConfig()`](#valencysetconfigfn)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -264,6 +265,10 @@ All elements that have a `data-valency` attribute, their `src` atrribute will be
 Returns configuration object.
 
 > If `otherConfig` argument is provided, it's merged with the base configuration. Note that whatever options set in `otherConfig` takes precedence over the base configuration when they're merged together.
+
+## <span id="valencysetconfigfn">`valency.setConfig(otherConfig)`</span>
+
+Use to globally update configuration.
 
 ## 👨‍🔧 Contributing
 
