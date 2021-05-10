@@ -141,7 +141,7 @@ Use `data-valency-lib` to set a library name if you don't want to use the defaul
 
 ## ⚛️ React
 
-There is a wrapper library for React, have a look at [react-valency](https://github.com/ValencyHQ/react/blob/master/LICENSE).
+There is a wrapper library for React, have a look at [react-valency](https://github.com/ValencyHQ/react).
 
 ## 🎏 Figma
 
