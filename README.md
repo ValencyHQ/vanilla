@@ -40,7 +40,7 @@ npm install @valencyhq/valency --save
             <img data-valency="cat-dog" />
 
             <script>
-                  var valent = new valency({
+                  var valent = new Valency({
                         uid: 'your user ID',
                         project: 'your project ID',
                         library: 'Your library ID',
@@ -90,7 +90,7 @@ Setup Valency with your credentials. Call the `valency.replace()` method:
 
 ```html
 <script>
-      var valent = new valency({
+      var valent = new Valency({
             uid: 'Your user ID',
             project: 'Your project ID',
             library: 'Your library ID',
