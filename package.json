@@ -32,7 +32,7 @@
             "typescript": "^4.0.3"
       },
       "scripts": {
-            "build": "microbundle -o dist/ --sourcemap false --compress false",
+            "build": "microbundle -o dist/ --sourcemap false --compress false --globals valency=Valency",
             "dev": "microbundle watch -o dist/ --sourcemap false --compress false",
             "test": "jest --coverage",
             "test:watch": "jest --coverage --watch",
