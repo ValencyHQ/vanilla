@@ -1,11 +1,11 @@
 {
       "name": "@valencyhq/valency",
-      "version": "0.1.6",
+      "version": "0.1.4",
       "description": "Valency is a tool to manage and serve design assets",
       "source": "src/valency.ts",
       "main": "dist/valency.umd.js",
-      "module": "dist/valency.umd.js",
-      "exports": "./dist/valency.umd.js",
+      "module": "dist/valency.module.js",
+      "exports": "./dist/valency.modern.js",
       "unpkg": "dist/valency.umd.js",
       "umd:main": "dist/valency.umd.js",
       "files": [
