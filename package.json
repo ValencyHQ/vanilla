@@ -8,6 +8,7 @@
       "exports": "./dist/valency.modern.js",
       "unpkg": "dist/valency.umd.js",
       "umd:main": "dist/valency.umd.js",
+      "typings": "dist/valency.d.ts",
       "files": [
             "dist",
             "readme.md"
