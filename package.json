@@ -3,9 +3,9 @@
       "version": "0.1.4",
       "description": "Valency is a tool to manage and serve design assets",
       "source": "src/valency.ts",
-      "main": "dist/valency.js",
-      "exports": "./dist/valency.modern.js",
-      "module": "dist/valency.mjs",
+      "main": "dist/valency.umd.js",
+      "module": "dist/valency.module.js",
+      "exports": "./dist/valency.module.js",
       "unpkg": "dist/valency.umd.js",
       "umd:main": "dist/valency.umd.js",
       "files": [
