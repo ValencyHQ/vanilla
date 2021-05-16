@@ -19,6 +19,15 @@ describe('Test Valency class', () => {
             })
       })
 
+      describe('Test loadSprite() method', () => {
+            it(`should add loading state`, () => {
+                  const valent = new Valency(defaultConfig)
+                  valent.loadSprite()
+
+                  expect(valent.libraryIconsState.length).toEqual(1)
+            })
+      })
+
       describe('Test getConfig() method', () => {
             it(`should return`, () => {
                   expect(
@@ -104,7 +113,7 @@ describe('Test Valency class', () => {
                   new Valency(defaultConfig).replace(undefined, document)
 
                   expect(document.body.innerHTML).toBe(
-                        `<svg data-valency="cat-dog"><use xlink:href="${testAssetURL}icons.svg#cat-dog"></use></svg>`
+                        `<svg data-valency="cat-dog"><use xlink:href="#${defaultConfig.library}_cat-dog"></use></svg>`
                   )
             })
 
@@ -114,7 +123,7 @@ describe('Test Valency class', () => {
                   new Valency(defaultConfig).replace(undefined, document)
 
                   expect(document.body.innerHTML).toBe(
-                        `<svg data-valency="cat-dog" data-valency-lib="niceicons"><use xlink:href="${BASE_URL}${defaultConfig.uid}/${defaultConfig.project}/niceicons/icons.svg#cat-dog"></use></svg>`
+                        `<svg data-valency="cat-dog" data-valency-lib="niceicons"><use xlink:href="#niceicons_cat-dog"></use></svg>`
                   )
             })
 
@@ -123,7 +132,7 @@ describe('Test Valency class', () => {
 
                   new Valency(defaultConfig).replace(undefined, document)
                   expect(document.body.innerHTML).toBe(
-                        `<svg data-valency="cat-dog" width="24" height="24" fill="none" stroke="currentColor"><use xlink:href="${testAssetURL}icons.svg#cat-dog"></use></svg>`
+                        `<svg data-valency="cat-dog" width="24" height="24" fill="none" stroke="currentColor"><use xlink:href="#${defaultConfig.library}_cat-dog"></use></svg>`
                   )
             })
       })
