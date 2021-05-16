@@ -171,10 +171,10 @@ export default class Valency {
             return new Proxy({}, trap) as never
       }
 
-      public loadSprite(otherConfig?: Config) {
+      public loadSprite(otherConfig?: Config): void {
             const config = this.getConfig(otherConfig)
 
-            const recordIndex = this.libraryIconsState.findIndex(
+            let recordIndex = this.libraryIconsState.findIndex(
                   (entry) => entry.name === config.library
             )
             const record = this.libraryIconsState[recordIndex]
@@ -186,18 +186,20 @@ export default class Valency {
                         name: config?.library,
                         status: 'LOADING',
                   })
+                  recordIndex = this.libraryIconsState.length - 1
             } else {
                   this.libraryIconsState[recordIndex].status = 'LOADING'
             }
 
-            const iconUrl =
-                  'https://cors-anywhere.ahkohd.workers.dev/?' +
-                  this.get('__icons__.svg', config)
+            const iconUrl = `https://cors-anywhere.ahkohd.workers.dev/?${this.get(
+                  '__icons__.svg',
+                  config
+            )}`
 
             const request = new XMLHttpRequest()
             request.open('GET', iconUrl, true)
             request.send()
-            request.onload = () => {
+            request.addEventListener('load', () => {
                   const div = document.createElement('div')
                   div.innerHTML = request.responseText
 
@@ -207,9 +209,10 @@ export default class Valency {
                   )
 
                   this.libraryIconsState[recordIndex].status = 'LOADED'
-            }
+            })
 
-            request.onerror = () =>
-                  (this.libraryIconsState[recordIndex].status = 'FAILED')
+            request.addEventListener('error', () => {
+                  this.libraryIconsState[recordIndex].status = 'FAILED'
+            })
       }
 }
