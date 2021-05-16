@@ -18,11 +18,17 @@ export type ValencyProxy = Record<
             url: string
       }
 >
+export interface LibarySpriteState {
+      status: 'LOADING' | 'LOADED' | 'FAILED'
+      name: string
+}
 
 export default class Valency {
       public static baseUrl = 'https://cdn.valency.design/'
 
       public asset: ValencyProxy
+
+      public libraryIconsState: Array<LibarySpriteState> = []
 
       constructor(private baseConfig: ValencyConfig) {
             this.asset = this.createValencyProxy()
@@ -101,12 +107,13 @@ export default class Valency {
                                     configure
                               )
                         } else if (['I', 'svg'].includes(element.tagName)) {
+                              this.loadSprite(configure)
+
                               const svgElement = doc.createElement('SVG')
 
-                              svgElement.innerHTML = `<use xlink:href="${this.get(
-                                    'icons.svg',
-                                    configure
-                              )}#${assetName}"></use>`
+                              svgElement.innerHTML = `<use xlink:href="#${
+                                    this.getConfig(configure).library
+                              }_${assetName}"></use>`
                               Array.from(element.attributes).forEach((attr) => {
                                     svgElement.setAttribute(
                                           attr.name,
@@ -162,5 +169,47 @@ export default class Valency {
             }
 
             return new Proxy({}, trap) as never
+      }
+
+      public loadSprite(otherConfig?: Config) {
+            const config = this.getConfig(otherConfig)
+
+            const recordIndex = this.libraryIconsState.findIndex(
+                  (entry) => entry.name === config.library
+            )
+            const record = this.libraryIconsState[recordIndex]
+
+            if (record && ['LOADED', 'LOADING'].includes(record.status)) return
+
+            if (!record) {
+                  this.libraryIconsState.push({
+                        name: config?.library,
+                        status: 'LOADING',
+                  })
+            } else {
+                  this.libraryIconsState[recordIndex].status = 'LOADING'
+            }
+
+            const iconUrl =
+                  'https://cors-anywhere.ahkohd.workers.dev/?' +
+                  this.get('__icons__.svg', config)
+
+            const request = new XMLHttpRequest()
+            request.open('GET', iconUrl, true)
+            request.send()
+            request.onload = () => {
+                  const div = document.createElement('div')
+                  div.innerHTML = request.responseText
+
+                  document.body.insertBefore(
+                        div.childNodes[0],
+                        document.body.childNodes[0]
+                  )
+
+                  this.libraryIconsState[recordIndex].status = 'LOADED'
+            }
+
+            request.onerror = () =>
+                  (this.libraryIconsState[recordIndex].status = 'FAILED')
       }
 }
