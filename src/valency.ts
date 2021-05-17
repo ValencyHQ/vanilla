@@ -174,6 +174,9 @@ export default class Valency {
       public loadSprite(otherConfig?: Config): void {
             const config = this.getConfig(otherConfig)
 
+            if (document.querySelector(`svg[id=icons_${config.library}]`))
+                  return
+
             let recordIndex = this.libraryIconsState.findIndex(
                   (entry) => entry.name === config.library
             )
