@@ -24,8 +24,7 @@ export interface LibarySpriteState {
 }
 
 export default class Valency {
-      public static baseUrl =
-            'https://valency-storage.s3-us-west-2.amazonaws.com/'
+      public static baseUrl = 'https://d23ofekumsizcj.cloudfront.net/'
 
       public asset: ValencyProxy
 

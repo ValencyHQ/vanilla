@@ -1,6 +1,6 @@
 import Valency from './valency'
 
-const BASE_URL = 'https://valency-storage.s3-us-west-2.amazonaws.com/'
+const BASE_URL = 'https://d23ofekumsizcj.cloudfront.net/'
 const defaultConfig = {
       uid: 'ahkohd',
       project: 'someprojectid',
