@@ -263,7 +263,7 @@ All elements that have a `data-valency` attribute, their `src` atrribute will be
 
 ## <span id="valencyloadspritefn">`valency.loadSprite(config?)`</span>
 
-Loads the SVG sprite of a library to the `DOM`.
+Loads the SVG sprite of a library into the `DOM`.
 
 > If `config` is provided, it's merged with the base configuration. Note that whatever options contained in the `config` object takes precedence over the base configuration when they're merged together.
 
