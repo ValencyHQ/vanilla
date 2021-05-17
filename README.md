@@ -24,6 +24,7 @@ npm install @valencyhq/valency --save
      - [`valency.get()`](#valencygetfn)
      - [`valency.get() shorthand properties`](#valencygetshorthandpropsfn)
      - [`valency.replace()`](#valencyreplacefn)
+     - [`valency.loadSprite()`](#valencyloadpspritefn)
      - [`valency.getConfig()`](#valencygetconfigfn)
      - [`valency.setConfig()`](#valencysetconfigfn)
 - [Contributing](#contributing)
@@ -256,15 +257,21 @@ valent.asset['03786'].pMaterial.LIB_mcq['Mast Head.png'].url
 
 All elements that have a `data-valency` attribute, their `src` atrribute will be replaced with the assset URL corresponding to their `data-valency` attribute value.
 
-> If `config` argument is provided, it is used to generate the link instead of the default configuration set at instance of `Valency`.
+> If `config` is provided, it's merged with the base configuration. Note that whatever options contained in the `config` object takes precedence over the base configuration when they're merged together.
 
-> If `document` argument is provided, it carries out replace on it instead of `window.document`.
+> If `document` is provided, it carries out replace on it instead of `window.document`.
+
+## <span id="valencyloadspritefn">`valency.loadSprite(config?)`</span>
+
+Loads the SVG sprite of a library to the `DOM`.
+
+> If `config` is provided, it's merged with the base configuration. Note that whatever options contained in the `config` object takes precedence over the base configuration when they're merged together.
 
 ## <span id="valencygetconfigfn">`valency.getConfig(otherConfig?)`</span>
 
 Returns configuration object.
 
-> If `otherConfig` argument is provided, it's merged with the base configuration. Note that whatever options set in `otherConfig` takes precedence over the base configuration when they're merged together.
+> If `otherConfig` is provided, it's merged with the base configuration. Note that whatever options set in `otherConfig` takes precedence over the base configuration when they're merged together.
 
 ## <span id="valencysetconfigfn">`valency.setConfig(otherConfig)`</span>
 
