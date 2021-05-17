@@ -24,7 +24,8 @@ export interface LibarySpriteState {
 }
 
 export default class Valency {
-      public static baseUrl = 'https://cdn.valency.design/'
+      public static baseUrl =
+            'https://valency-storage.s3-us-west-2.amazonaws.com/'
 
       public asset: ValencyProxy
 
@@ -191,10 +192,7 @@ export default class Valency {
                   this.libraryIconsState[recordIndex].status = 'LOADING'
             }
 
-            const iconUrl = `https://cors-anywhere.ahkohd.workers.dev/?${this.get(
-                  '__icons__.svg',
-                  config
-            )}`
+            const iconUrl = this.get('__icons__.svg', config)
 
             const request = new XMLHttpRequest()
             request.open('GET', iconUrl, true)
