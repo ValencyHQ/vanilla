@@ -127,6 +127,16 @@ describe('Test Valency class', () => {
                   )
             })
 
+            it(`should replace I with an SVG element referencing the custom provided (using data-valency-lib, data-valency-project, data-valency-uid) library's icons SVG sprite with the ID which corresponds with data-valency="cat-dog"`, () => {
+                  document.body.innerHTML = `<i data-valency="cat-dog" data-valency-lib="moonicons" data-valency-project="PQ137823" data-valency-uid="123456"></i>`
+
+                  new Valency(defaultConfig).replace(undefined, document)
+
+                  expect(document.body.innerHTML).toBe(
+                        `<svg data-valency="cat-dog" data-valency-lib="moonicons" data-valency-project="PQ137823" data-valency-uid="123456"><use xlink:href="#moonicons_cat-dog"></use></svg>`
+                  )
+            })
+
             it(`shoud replace current SVG  a SVG using an icon from the default library's icons SVG sprite with data-valency="cat-dog" value corresponding to icon's ID`, () => {
                   document.body.innerHTML = `<svg data-valency="cat-dog" width="24" height="24" fill="none" stroke="currentColor"></svg>`
 

@@ -85,10 +85,16 @@ export default class Valency {
                         const assetName = element.dataset?.valency ?? ''
                         const valencyLibraryName =
                               element.dataset?.valencyLib ?? undefined
+                        const valencyProjectName =
+                              element.dataset?.valencyProject ?? undefined
+                        const valencyUid =
+                              element.dataset?.valencyUid ?? undefined
 
                         const configure = {
                               ...config,
                               library: valencyLibraryName ?? config?.library,
+                              project: valencyProjectName ?? config?.project,
+                              uid: valencyUid ?? config?.uid,
                         }
 
                         if (element.tagName === 'IMG') {
